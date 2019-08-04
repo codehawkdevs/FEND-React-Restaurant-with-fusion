@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, ListGroup, ListGroupItem } from 'reactstrap';
 
 class DishDetail extends Component {
     constructor(props) {
@@ -8,15 +8,19 @@ class DishDetail extends Component {
 
         }
     }
-    render() {
-        const renderComments = this.props.dish.comments.map((comment) => {
+    renderComments(comments) {
+        const list = comments.map((comment) => {
             return (
-                <div>
+                <ListGroupItem key={comment.id}>
                     <p>{comment.comment}</p>
                     <p>--{comment.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}</p>
-                </div>
+                </ListGroupItem>
             )
         })
+        return list;
+    }
+
+    render() {
         return (
             <div className="row">
                 <div className="col-12 col-md-5 m-1">
@@ -33,7 +37,9 @@ class DishDetail extends Component {
 
                         <CardBody>
                             <h3><CardTitle>Comments</CardTitle></h3>
-                            {renderComments}
+                            <ListGroup>
+                                {this.renderComments(this.props.dish.comments)}
+                            </ListGroup>
                         </CardBody>
                     </Card>
                 </div>

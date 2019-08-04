@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 import DishDetail from './DishdetailComponent';
 
 class Menu extends Component {
@@ -26,7 +26,7 @@ class Menu extends Component {
                 <div key={dish.id} className="col-12 col-md-5 m-1">
                     <Card onClick={() => this.onDishSelect(dish)}>
                         <CardImg width="100%" src={dish.image} alt={dish.name} />
-                        <CardImgOverlay body className="ml-5">
+                        <CardImgOverlay className="ml-5">
                             <CardTitle>{dish.name}</CardTitle>
                         </CardImgOverlay>
                     </Card>
