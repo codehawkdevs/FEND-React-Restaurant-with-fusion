@@ -22,26 +22,28 @@ class DishDetail extends Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-12 col-md-5 m-1">
-                    <Card>
-                        <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name} />
-                        <CardBody>
-                            <CardTitle>{this.props.dish.name}</CardTitle>
-                            <CardText>{this.props.dish.description}</CardText>
-                        </CardBody>
-                    </Card>
-                </div>
-                <div className="col-12 col-md-5 m-1">
-                    <Card>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        <Card>
+                            <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name} />
+                            <CardBody>
+                                <CardTitle>{this.props.dish.name}</CardTitle>
+                                <CardText>{this.props.dish.description}</CardText>
+                            </CardBody>
+                        </Card>
+                    </div>
+                    <div className="col-12 col-md-5 m-1">
+                        <Card>
 
-                        <CardBody>
-                            <h3><CardTitle>Comments</CardTitle></h3>
-                            <ListGroup>
-                                {this.renderComments(this.props.dish.comments)}
-                            </ListGroup>
-                        </CardBody>
-                    </Card>
+                            <CardBody>
+                                <h3><CardTitle>Comments</CardTitle></h3>
+                                <ListGroup>
+                                    {this.renderComments(this.props.dish.comments)}
+                                </ListGroup>
+                            </CardBody>
+                        </Card>
+                    </div>
                 </div>
             </div>
         )
