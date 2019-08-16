@@ -6,7 +6,7 @@ import Contact from './ContactComponent'
 import Home from './HomeComponent';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import DishDetail from './DishdetailComponent';
-import AboutUs from './AboutUs';
+import AboutUs from './AboutComponent';
 import { DISHES } from '../shared/dishes';
 import { COMMENTS } from '../shared/comments';
 import { PROMOTIONS } from '../shared/promotions';
