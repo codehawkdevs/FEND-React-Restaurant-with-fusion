@@ -3,41 +3,42 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 
 
-const RenderLeader = (props) => {
-    const leaders = props.leaders.map((leader) => {
-        const imgStyle = {
-            maxHeight: 128,
-            maxWidth: 128
-        }
+const RenderLeader = ({ leader }) => {
 
-        return (
-            <div >
-                <Media>
-                    <Media left href="#">
-                        <Media style={imgStyle} object src={leader.image} alt="Leader" />
-                    </Media>
-                    <Media body>
-                        <Media heading>
-                            {leader.name}
-                        </Media>
-                        <br />
-                        {leader.designation}
-                        <br />
-                        <br />
-                        {leader.description}
-                    </Media>
+    const imgStyle = {
+        maxHeight: 128,
+        maxWidth: 128
+    }
+
+    return (
+        <div >
+            <Media>
+                <Media left href="#">
+                    <Media style={imgStyle} object src={leader.image} alt="Leader" />
                 </Media>
-                <br />
-                <br />
-            </div>
-        );
-    })
-    return (leaders);
+                <Media body>
+                    <Media heading>
+                        <p>{leader.name}</p>
+                    </Media>
+                    <p>{leader.designation}</p>
+                    <p>{leader.description}</p>
+                </Media>
+            </Media>
+            <br />
+            <br />
+        </div>
+    );
 }
+
 
 
 const About = (props) => {
 
+    const leaders = props.leaders.map((leader) => {
+        return (
+            <RenderLeader leader={leader} />
+        );
+    });
 
 
     return (
@@ -96,7 +97,7 @@ const About = (props) => {
                 </div>
                 <div className="col-12">
                     <Media list>
-                        <RenderLeader leaders={props.leaders} />
+                        {leaders}
                     </Media>
                 </div>
             </div>
