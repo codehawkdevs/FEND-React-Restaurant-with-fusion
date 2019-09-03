@@ -1,6 +1,7 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardImg, CardText, CardBody, CardTitle, ListGroup, ListGroupItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import CommentForm from './CommentFormComponent';
 const RenderDish = ({ dish }) => {
     return (
         <div className="col-12 col-md-5 m-1">
@@ -32,6 +33,8 @@ const RenderComments = ({ comments }) => {
                     <ListGroup>
                         {list}
                     </ListGroup>
+                    <br />
+                    <CommentForm />
                 </CardBody>
             </Card>
         </div>
