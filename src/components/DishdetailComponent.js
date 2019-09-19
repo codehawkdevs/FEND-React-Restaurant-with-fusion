@@ -19,10 +19,8 @@ class CommentForm extends Component {
     }
 
     handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
         this.toggleModal();
-        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        this.props.addComment(this.props.dishId, values.rating, values.fullname, values.message);
         // event.preventDefault();
     }
     toggleModal() {
@@ -41,8 +39,8 @@ class CommentForm extends Component {
                     <ModalBody>
                         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className="form-group">
-                                <Label htmlFor="exampleSelect" md={2}>Select</Label>
-                                <Control.select model=".exampleSelect">
+                                <Label htmlFor="rating" md={2}>Select</Label>
+                                <Control.select model=".rating">
                                     <option value="1" selected>1</option>
                                     <option value="2" >2</option>
                                     <option value="3" >3</option>
